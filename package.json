@@ -11,5 +11,14 @@
   "dependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaiscerev1/troubleshooting-js-actions.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/kaiscerev1/troubleshooting-js-actions/issues"
+  },
+  "homepage": "https://github.com/kaiscerev1/troubleshooting-js-actions#readme"
 }
