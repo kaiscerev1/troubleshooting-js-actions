@@ -1,0 +1,45 @@
+name: Troubleshooting Actions
+
+on:
+    workflow_dispatch:
+        inputs:
+            name:
+                description: 'User name'
+                required: true
+                default: 'Kai'
+                type: string
+            phone:
+                description: 'User phone'
+                required: true
+                default:  1234567890
+                type: number
+            country:
+                description: 'User country'
+                required: true
+                default: 'Spain'
+                type: choice
+                options:
+                    - Germany
+                    - France
+                    - Italy
+                    - Spain
+
+jobs:
+    custom-action:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Invoking custon action
+              id: action_step
+              uses: ./ # Path to the action
+              with:
+                  name: ${{ github.event.inputs.name }}
+                  phone: ${{ github.event.inputs.phone }}
+                  country: ${{ github.event.inputs.country }}
+
+            - name: Log Data from Previous Step
+              run: |
+                echo "Greeting Output: ${{ steps.action_step.outputs.customzied_greeting }}"
+                echo "Country Code: $JS_ACTION_PHONE"
