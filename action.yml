@@ -1,0 +1,29 @@
+name: Troubelshooting JS Actions
+description: |
+  This action is used to troubleshoot JavaScript actions.
+  It provides a simple way to run JavaScript code in a GitHub Actions workflow.
+  The action will print the input and output of the JavaScript code to the console.
+  This action is useful for debugging and testing JavaScript actions.
+branding:
+  icon: alert-triangle
+  color: orange
+inputs:
+  name:
+    description: 'Provide User Name'
+    required: true
+    default: 'Kai'
+  phone:
+    description: 'Provide Phone Number'
+    required: true
+    default: '+1-234-567-8900'
+  country:
+    description: 'Provide Country Name'
+    required: true
+    default: 'Spain'
+outputs:
+  customzied_greeting:
+    description: 'Setting output, to be used in subsequent steps'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
