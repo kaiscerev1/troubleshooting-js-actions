@@ -1,0 +1,21 @@
+name: Auto Release Workflow
+# This workflow automatically creates a release when a new tag is pushed to the repository.
+# It uses the softprops/action-gh-release action to create the release.
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate Release Notes
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: dist/index.js
